@@ -3,7 +3,7 @@ const server = net.createServer((socket) => {
     socket.setEncoding('utf8');
     socket.write('STATUS: 230 | onyame.ml | ESMTP\u000D\u000A');
 }).on('error', (err) => {
-    throw err;
+    console.log(err);
 });
 
 server.listen(process.env.PORT ||  25 ,() => {
