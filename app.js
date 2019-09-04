@@ -19,6 +19,6 @@ const server = net.createServer((socket) => {
     throw err;
 });
 
-server.listen(process.env.PORT || 25 ,() => {
+server.listen( 25 ,() => {
     console.log('opened server on', server.address());
 });
