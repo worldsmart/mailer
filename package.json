@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/worldsmart/mailer#readme",
   "dependencies": {
+    "emailjs-mime-parser": "^2.0.7",
     "express": "^4.17.1",
+    "mailparser-mit": "^1.0.0",
+    "mimemessage": "^1.0.5",
     "nodemon": "^1.19.2"
   }
 }
