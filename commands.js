@@ -35,7 +35,8 @@ module.exports = (socket, data)=>{
         });
     };
     msg.mime += multipart.toString();
-    let header = msg.mime.substring(0, msg.mime.match(/\u000D\u000A\u000D\u000A/).index).replace(/^(.*:)/gm, (v)=>{ return v.toLowerCase(); }).replace(/^(.*:)[\r\n\t\f\v ]/gm, '$1');
+
+    /*let header = msg.mime.substring(0, msg.mime.match(/\u000D\u000A\u000D\u000A/).index).replace(/^(.*:)/gm, (v)=>{ return v.toLowerCase(); }).replace(/^(.*:)[\r\n\t\f\v ]/gm, '$1');
     let body = msg.mime.substring(msg.mime.match(/\u000D\u000A\u000D\u000A/).index + 4).replace(/[ \t]+\r\n/g, '\r\n').replace(/[ \t]+/g, ' ').replace(/\r\n{2,}$/g, '\u000D\u000A');
     let hb = crypto.createHash('sha256').update(body).digest('base64');
     let signature = 'DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=onyame.ml; s=def;\u000D\u000A' +
@@ -43,10 +44,10 @@ module.exports = (socket, data)=>{
         'b=;';
     signature = signature.replace(/b=;$/, 'b=' + crypto.createSign('sha256').update(header + signature.replace(/\u000D\u000A/g, ' ')).sign(fs.readFileSync('./private.pem', 'utf8'), 'base64') + ';\u000D\u000A');
     msg.mime = signature + msg.mime;
-    console.log(msg.mime)
+    console.log(msg.mime);*/
 
     socket.write('EHLO onyame.ml\u000D\u000A');
-    return null;
+    return from;
 };
 
 function from(socket) {
